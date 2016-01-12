@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:ScaleTOTPConfig xmlns:tns="http://www.tremolosecurity.com/scale"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.tremolosecurity.com/scale ../../../../../scale-config/src/main/resources/xml/scale-schema.xsd ">
+	<tns:serviceConfiguration keyStorePassword="#[SCALE_KEYSTORE_PASSWORD]"
+		keyStorePath="/etc/scale/scaleKeystore.jks" unisonURL="https://#[SCALE_HOST_PORT]/"
+		lookupAttributeName="uid" />
+	<tns:UiConfig displayNameAttribute="cn" homeURL="/scale/" />
+	<tns:frontPage>
+		<tns:title>Authentication Token</tns:title>
+		<tns:text>Use your phone to scan this token</tns:text>
+	</tns:frontPage>
+	<tns:decryptionKey>s4JIMRJWPxPvDUsUIBBJBe2Rp3LWStYyRKyid2b9fg8=</tns:decryptionKey>
+	<tns:attributeName>carLicense</tns:attributeName>
+</tns:ScaleTOTPConfig>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:ScaleRegisterConfig xmlns:tns="http://www.tremolosecurity.com/scale"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.tremolosecurity.com/scale ../../../../../scale-config/src/main/resources/xml/scale-passwordreset.xsd ">
+	<tns:serviceConfiguration keyStorePassword="#[SCALE_KEYSTORE_PASSWORD]"
+		keyStorePath="/etc/scale/scaleKeystore.jks" unisonURL="https://#[SCALE_HOST_PORT]/"
+		lookupAttributeName="uid" recaptcha="false" />
+	<tns:UiConfig displayNameAttribute="cn" homeURL="/scale/" />
+	<tns:frontPage>
+		<tns:title>Register</tns:title>
+		<tns:text>Register for this site</tns:text>
+	</tns:frontPage>
+	<tns:attributes>
+	  	<tns:attribute name="sponsor" label="Department" controlType="list" required="true">
+	  		<tns:listValue name="Sales" value="sales" />
+	  		<tns:listValue name="Marketing" value="marketing" />
+	  		<tns:listValue name="Engineering" value="eng" />
+	  	</tns:attribute>
+		<tns:attribute name="cn" label="Display Name" required="true" />
+		<tns:attribute name="uid" label="User Login" required="true"></tns:attribute>
+		<tns:attribute name="givenName" label="First Name" required="true" />
+		<tns:attribute name="sn" label="Last Name" required="true" />
+		<tns:attribute name="mail" label="Email Address" required="true" />
+	</tns:attributes>
+	<tns:termsAndConditions>
+		In order to use this site you &lt;b&gt;MUST&lt;/b&gt; accept these terms
+	</tns:termsAndConditions>
+	<tns:recaptcha>true</tns:recaptcha>
+	<tns:uniqueAttribute>mail</tns:uniqueAttribute>
+	<tns:uniqueAttribute>uid</tns:uniqueAttribute>
+	<tns:workflowConfiguration className="com.tremolosecurity.scale.register.SimpleRegisterUser">
+		<tns:initParams name="workflowName" value="PrintUserInfo" />
+		<tns:initParams name="workflowReason" value="website registration" />
+
+	</tns:workflowConfiguration>
+</tns:ScaleRegisterConfig>

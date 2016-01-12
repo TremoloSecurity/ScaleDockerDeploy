@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:ScaleSingleRequestConfig xmlns:tns="http://www.tremolosecurity.com/scale" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tremolosecurity.com/scale scale-schema.xsd ">
+  <tns:serviceConfiguration keyStorePassword="#[SCALE_KEYSTORE_PASSWORD]"
+		keyStorePath="/etc/scale/scaleKeystore.jks" unisonURL="https://#[SCALE_HOST_PORT]/"
+		lookupAttributeName="uid"  />
+	<tns:UiConfig displayNameAttribute="cn" homeURL="/scale/" />
+	<tns:frontPage>
+		<tns:title>Request Administrative Access</tns:title>
+		<tns:text>Use this page to submit a request for administrative access</tns:text>
+	</tns:frontPage>
+  <tns:workflowName>PrintUserInfo</tns:workflowName>
+</tns:ScaleSingleRequestConfig>

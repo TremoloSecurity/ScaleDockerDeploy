@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:ScalePasswordResetConfig xmlns:tns="http://www.tremolosecurity.com/scale"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.tremolosecurity.com/scale ../../../../../scale-config/src/main/resources/xml/scale-passwordreset.xsd ">
+	<tns:serviceConfiguration keyStorePassword="#[SCALE_KEYSTORE_PASSWORD]"
+		keyStorePath="/etc/scale/scaleKeystore.jks" unisonURL="https://#[SCALE_HOST_PORT]/"
+		lookupAttributeName="uid" />
+	<tns:UiConfig displayNameAttribute="cn" homeURL="/scale/" />
+	<tns:frontPage>
+		<tns:title>Reset Your Password</tns:title>
+		<tns:text>Specify your new password</tns:text>
+	</tns:frontPage>
+	<tns:attributes>
+		<tns:attribute name="cn" label="Display Name" />
+		<tns:attribute name="uid" label="User Login"></tns:attribute>
+		<tns:attribute name="givenName" label="First Name" />
+		<tns:attribute name="sn" label="Last Name" />
+		<tns:attribute name="mail" label="Email Address" />
+	</tns:attributes>
+	<tns:passwordValidation className="com.tremolosecurity.scale.passwordreset.validate.ActiveDirectoryValidator">
+		<tns:initParams name="minChars" value="5"/>
+		<tns:initParams name="maxChars" value="20"/>
+		<tns:initParams name="requireLower" value="true"/>
+		<tns:initParams name="requireUpper" value="true"/>
+		<tns:initParams name="requireNumber" value="true"/>
+		<tns:initParams name="requireSpecial" value="true"/>
+		<tns:initParams name="minRequirements" value="3"/>
+		<tns:initParams name="attributesToCheck" value="givenName"/>
+		<tns:initParams name="attributesToCheck" value="sn"/>
+	</tns:passwordValidation>
+	<tns:workflowName>PrintUserInfo</tns:workflowName>
+</tns:ScalePasswordResetConfig>
