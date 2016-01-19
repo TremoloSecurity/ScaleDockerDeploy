@@ -8,6 +8,16 @@ Use the repo as the bases for a Scale docker image.  When deploying Scale you wi
 5. Generate LastMile keys for SSO into Scale
 6. Deploy your image
 
+# LastMile and Scale Key Stores
+In order for Scale and Unison to communicate, the docker image must have Unison's LastMile keystore and Scale's keystore must be deployed.  Prior to deploying the image, add the following:
+
+| Component | Location |
+| --------- | -------- |
+| LastMile Keystore | lastmile/lastmile.jks |
+| Scale Keystore | keystore/scaleKeystore.jks |
+
+# Deployment
+
 Each of the Scale applications is defined in this Dockerfile.  Its designed with the following assumptions:
 
 1. Scale will be deployed in Tomcat
@@ -24,3 +34,4 @@ This Dockerfile should be customized to match your deployment.  Each application
 | scaleConfig.xml | The configuration for the specific Scale application | See Scale's configuration documentation  |
 
 See Scale's documentation for specifics on how to configure these options : https://www.tremolosecurity.com/docs/tremolosecurity-docs/1.0.6/scale/scale-manual-1.0.6.html
+
