@@ -8,8 +8,8 @@
      userAttribute="uid"
      roleAttribute=""
      createHeaders="true"
-     encryptionKeyName="#[SCALE_LASTMILE_KEYNAME]"
+     encryptionKeyName="${scale.lastmile.keyname}"
      ignoreURI=""
      pathToKeyStore="/etc/scale/lastmile.jks"
-     keyPass="#[SCALE_LASTMILE_PASSWORD]"/>
+     keyPass="${scale.lastmile.password}"/>
 </Context>
